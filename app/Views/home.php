@@ -8,8 +8,10 @@
     </div>
 <?php endif; ?>
 
+<h3>Hai,  <?php echo $_SESSION['name']; ?> </h3>
 <a class="btn btn-success" href="/create">Tambah</a>
 <a class="btn btn-danger" href="/logout">Logout</a>
+<a class="btn btn-info" href="/exportpdf">Export PDF</a> 
 <table id="myTable" class="table">
 <thead>
 <tr>

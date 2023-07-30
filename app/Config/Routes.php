@@ -47,6 +47,10 @@ $routes->get('login', 'AuthController::login');
 $routes->post('login', 'AuthController::login');
 $routes->get('logout', 'AuthController::logout'); 
 
+// Export PDF
+$routes->get('/exportpdf', 'ExportPdf::exportPDF');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
