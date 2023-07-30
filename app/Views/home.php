@@ -9,6 +9,7 @@
 <?php endif; ?>
 
 <a class="btn btn-success" href="/create">Tambah</a>
+<a class="btn btn-danger" href="/logout">Logout</a>
 <table id="myTable" class="table">
 <thead>
 <tr>

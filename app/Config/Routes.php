@@ -31,14 +31,21 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/home', 'Home::index');
-$routes->get('/create', 'Home::create');
-$routes->post('/store', 'Home::store');
-$routes->get('/edit/(:num)', 'Home::edit/$1');
-$routes->post('/update/(:num)', 'Home::update/$1');
-$routes->get('/delete/(:num)', 'Home::delete/$1');
+$routes->get('/create', 'Home::create', ['filter' => 'auth']);
+$routes->post('/store', 'Home::store', ['filter' => 'auth']);
+$routes->get('/edit/(:num)', 'Home::edit/$1', ['filter' => 'auth']);
+$routes->post('/update/(:num)', 'Home::update/$1', ['filter' => 'auth']);
+$routes->get('/delete/(:num)', 'Home::delete/$1', ['filter' => 'auth']);
 
 // Test :V
 $routes->get('/logic', 'Logic::index');
+
+//Registrasi 
+$routes->get('register', 'AuthController::register');
+$routes->post('register', 'AuthController::register');
+$routes->get('login', 'AuthController::login');
+$routes->post('login', 'AuthController::login');
+$routes->get('logout', 'AuthController::logout'); 
 
 /*
  * --------------------------------------------------------------------
