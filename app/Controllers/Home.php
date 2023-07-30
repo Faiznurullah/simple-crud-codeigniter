@@ -10,7 +10,8 @@ class Home extends BaseController
     public function index()
     {
         $ModelBelanja = new Belanja();
-        $data['belanjas'] = $ModelBelanja->findAll();
+        $data['belanjas'] = $ModelBelanja->paginate(4, 'belanjas');
+        $data['pager'] = $ModelBelanja->pager;
         return view('home', $data);
     }
     public function create()
@@ -43,6 +44,8 @@ class Home extends BaseController
             'nama' => $this->request->getPost('nama'),
             'jumlah' => $this->request->getPost('jumlah'),
             'harga' => $this->request->getPost('harga'),
+            'created_at' => date('Y-m-d H:i:s'), // Set nilai timestamp saat ini
+            'updated_at' => date('Y-m-d H:i:s'),
         ];
 
         $ModelBelanja->insert($data);
@@ -83,6 +86,7 @@ class Home extends BaseController
             'nama' => $this->request->getPost('nama'),
             'jumlah' => $this->request->getPost('jumlah'),
             'harga' => $this->request->getPost('harga'),
+            'updated_at' => date('Y-m-d H:i:s'),
         ];
 
 

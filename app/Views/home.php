@@ -41,6 +41,9 @@ foreach ($belanjas as $belanja):
 <?php endforeach; ?>
 </tbody>
 </table>
+
+ 	
+<?= $pager->links('belanjas', 'bootstrap_pagination'); ?>
 </div>
 </div>
 <?= $this->endSection(); ?>

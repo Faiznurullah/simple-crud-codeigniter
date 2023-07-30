@@ -13,7 +13,7 @@ class Belanja extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'jumlah', 'harga'];
+    protected $allowedFields    = ['nama', 'jumlah', 'harga', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = false;
