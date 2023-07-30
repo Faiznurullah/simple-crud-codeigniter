@@ -1,46 +1,81 @@
 <!doctype html>
-<html lang="en" class="h-100">
- 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.79.0">
-    <title>Sticky Footer Template · Bootstrap v5.0</title>
- 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/">
- 
-    <!-- Bootstrap core CSS -->
-    <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
- 
+<html lang="en">
 
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
- 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
- 
- 
-    <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/sticky-footer.css" rel="stylesheet">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.79.0">
+<title>Signin Template · Bootstrap v5.0</title>
+
+<!-- Bootstrap core CSS -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+   
 </head>
- 
-<body class="d-flex flex-column h-100">
+<style>
+.login-container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.login-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    color: #333;
+}
+.login-form-2{
+    padding: 5%;
+    background: #0062cc;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3{
+    text-align: center;
+    color: #fff;
+}
+.login-container form{
+    padding: 10%;
+}
+.btnSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+.login-form-2 .btnSubmit{
+    font-weight: 600;
+    color: #0062cc;
+    background-color: #fff;
+}
+.login-form-2 .ForgetPwd{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.login-form-1 .ForgetPwd{
+    color: #0062cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+</style> 
+<body class="text-center">
+
+<div class="container login-container">
+<div class="row justify-content-center">
+<div class="col-md-6 login-form-1">
  
     <!-- Begin page content -->
-    <main class="flex-shrink-0">
-        <div class="container">
+    <main class="form-signin">
             <h1 class="mt-5">Register Form</h1>
             Silahkan Daftarkan Identitas Anda
             <hr />
@@ -54,38 +89,31 @@
             <form method="post" action="/register">
                 <?= csrf_field(); ?>
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username">
+                    <input type="text" class="form-control" id="username" placeholder="username" name="username">
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password">
+                    <input type="password" class="form-control" id="password" placeholder="password" name="password">
                 </div>
                 <div class="mb-3">
-                    <label for="password_conf" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="password_conf" name="password_conf">
+                    <input type="password" class="form-control" id="password_conf" placeholder="Confirm password" name="password_conf">
                 </div>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <input type="text" class="form-control" placeholder="name" id="name" name="name">
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Register</button>
+                <input type="submit" class="btnSubmit" value="Login" />
                 </div>
             </form>
             <hr />
  
-        </div>
     </main>
  
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
-        </div>
-    </footer>
- 
- 
- 
-</body>
- 
-</html>
+    </div>
+    </div>
+    </div>
+    
+     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </body>
+    
+    </html>
