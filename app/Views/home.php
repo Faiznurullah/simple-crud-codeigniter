@@ -2,17 +2,22 @@
 <?= $this->section('content'); ?>
 <div class="row justify-content-center mt-5">
 <div class="col-xl-10"> 
-<?php if (session()->has('success')): ?>
+<?php if (session()->has('success')){ ?>
     <div class="alert alert-success">
         <?php echo session('success'); ?>
     </div>
-<?php endif; ?>
+<?php }else if(session()->has('error')){ ?>
+    <div class="alert alert-error">
+        <?php echo session('error'); ?>
+    </div>
+<?php }; ?>
 
 <h3>Hai,  <?php echo $_SESSION['name']; ?> </h3>
 <a class="btn btn-success" href="/create">Tambah</a>
 <a class="btn btn-danger" href="/logout">Logout</a>
 <a class="btn btn-info" href="/exportpdf">Export PDF</a> 
 <a class="btn btn-warning" href="/grafik">Grafik</a>
+<a class="btn btn-warning" href="/upload/transaksi">Upload Transaksi</a>
 <table id="myTable" class="table">
 <thead>
 <tr>

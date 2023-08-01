@@ -51,8 +51,11 @@ $routes->get('logout', 'AuthController::logout');
 $routes->get('/exportpdf', 'ExportPdf::exportPDF');
 
 //Chart
-$routes->get('/grafik', 'Chart::index');
+$routes->get('/grafik', 'Chart::index'); 
 
+//Upload Bukti Transaksi
+$routes->get('/upload/transaksi', 'Home::uploadtransaksi'); 
+$routes->post('/store/transaksi', 'Home::storetransaksi'); 
 
 /*
  * --------------------------------------------------------------------
