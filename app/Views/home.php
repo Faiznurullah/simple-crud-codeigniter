@@ -12,6 +12,7 @@
 <a class="btn btn-success" href="/create">Tambah</a>
 <a class="btn btn-danger" href="/logout">Logout</a>
 <a class="btn btn-info" href="/exportpdf">Export PDF</a> 
+<a class="btn btn-warning" href="/grafik">Grafik</a>
 <table id="myTable" class="table">
 <thead>
 <tr>

@@ -50,6 +50,9 @@ $routes->get('logout', 'AuthController::logout');
 // Export PDF
 $routes->get('/exportpdf', 'ExportPdf::exportPDF');
 
+//Chart
+$routes->get('/grafik', 'Chart::index');
+
 
 /*
  * --------------------------------------------------------------------
