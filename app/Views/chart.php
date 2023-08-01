@@ -6,12 +6,11 @@
             <div class="col-xl-5">
                 <center><h3>Grafik Berdasarkan Harga</h3></center>
                 <canvas id="myChart" width="150" height="75"></canvas>
-                <select class="form-select mt-3" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
+                <select id="selectDataHarga"  class="form-select mt-3" onchange="changeChartDataHarga()" aria-label="Default select example"> 
+                        <option value="tahun">Tahun</option>
+                        <option value="bulan">Bulan</option>
+                        <option value="minggu">Minggu</option>
+                    </select>
 
                 <a href="/" class="btn btn-primary btn-sm mt-5">Kembali</a>
             </div>
@@ -38,7 +37,48 @@ var dataJumlahTahun = <?= json_encode($datajumlahtahun); ?>;
 var dataJumlahBulan = <?= json_encode($datajumlahbulan); ?>;
 var dataJumlahMinggu = <?= json_encode($datajumlahminggu); ?>;
 
-var chartData;
+var datahargaJumlahTahun = <?= json_encode($datahargajumlahtahun); ?>;
+var datahargaJumlahBulan = <?= json_encode($datahargajumlahbulan); ?>;
+var datahargaJumlahMinggu = <?= json_encode($datahargajumlahminggu); ?>;
+
+
+var chartDataHarga = datahargaJumlahTahun;
+var chartData = dataJumlahTahun;
+
+function changeChartDataHarga() {
+    var selectElement = document.getElementById("selectDataHarga");
+    var selectedValue = selectElement.value;
+    
+    if (selectedValue === "tahun") {
+        chartDataHarga = datahargaJumlahTahun;
+    } else if (selectedValue === "bulan") {
+        chartDataHarga = datahargaJumlahBulan;
+    } else if (selectedValue === "minggu") {
+        chartDataHarga = datahargaJumlahMinggu;
+    }
+
+    updateChartBiayaHarga();
+}
+
+function updateChartBiayaHarga() {
+    if (window.chartInstanceBiayaHarga) {
+        window.chartInstanceBiayaHarga.destroy();
+    }
+    
+    // Membuat chart menggunakan Chart.js
+    var ctx = document.getElementById('myChart').getContext('2d');
+    window.chartInstanceBiayaHarga = new Chart(ctx, {
+        type: chartDataHarga.type,
+        data: chartDataHarga.data,
+        options: chartDataHarga.options
+    });
+}
+
+// Panggil fungsi updateChartBiaya untuk membuat chart awal
+updateChartBiayaHarga();
+
+
+
 
 function changeChartData() {
     var selectElement = document.getElementById("selectData");
