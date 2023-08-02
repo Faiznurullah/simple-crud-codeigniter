@@ -56,7 +56,8 @@ $routes->get('/grafik', 'Chart::index');
 //Upload Bukti Transaksi
 $routes->get('/upload/transaksi', 'Home::uploadtransaksi'); 
 $routes->post('/store/transaksi', 'Home::storetransaksi'); 
-
+$routes->get('/list/uploader/transaksi', 'Home::listupload'); 
+$routes->get('/upload/transaksi/delete/(:num)', 'Home::deleteupload/$1', ['filter' => 'auth']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use CodeIgniter\Model\belanja;
 
 class Uploadtransaksi extends Model
 {
@@ -38,4 +39,14 @@ class Uploadtransaksi extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function belanja()
+    {
+        $builder = $this->db->table($this->table);
+        $builder->select('uploadtransaksi.*, belanja.nama, belanja.jumlah, belanja.harga');
+        $builder->join('belanja', 'belanja.id = uploadtransaksi.belanja_id', 'left');
+        $builder->orderBy('created_at', 'ASC');
+
+        return $builder->get()->getResult();
+    }
 }

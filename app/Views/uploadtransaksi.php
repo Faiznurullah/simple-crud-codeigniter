@@ -19,7 +19,7 @@
         
     <?php echo session('errors'); ?>
     
-        </ul>
+       
     </div>
 <?php endif; ?>
 
@@ -45,6 +45,7 @@
 <div class="row">
     <div class="col-xl-6">
     <a href="/" class="btn btn-primary btn-sm">Kembali</a>
+    <a href="/list/uploader/transaksi" class="btn btn-primary btn-sm">Daftar Bukti Pembayaran</a>
     <button type="submit" class="btn btn-primary btn-sm">Kirim data</button>
     </div>
 </div>

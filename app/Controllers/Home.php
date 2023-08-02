@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Models\Belanja;
 use App\Models\Uploadtransaksi;
 use CodeIgniter\Validation\Rules;
-
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 class Home extends BaseController
 {
@@ -154,6 +154,32 @@ class Home extends BaseController
                         $dataBerkas->move('uploads/transaksi/', $fileName);
                         session()->setFlashdata('success', 'Berkas Berhasil diupload');
                         return redirect()->to('/upload/transaksi');
+                    }
+                    public function listupload(){
+                        $uploadtransaksiModel = new Uploadtransaksi();
+                        $data['uploadtransaksis'] = $uploadtransaksiModel->belanja();
+                        
+                        return view('listupload', $data);
+                    }
+                    public function deleteupload($id){
+                        
+                        $ModelTransaksi = new Uploadtransaksi();
+                        $data = $ModelTransaksi->find($id);
+                        
+                        $folderPath = '/uploads/transaksi/';
+                        
+                        if (is_file(FCPATH . $folderPath . $data['file'])) {
+                            unlink(FCPATH . $folderPath . $data['file']);
+                            $ModelTransaksi->delete($id);
+                        
+                            session()->setFlashdata('success', 'Data sukses dihapus');
+                            return redirect()->back()->withInput();
+                        } else {
+                            session()->setFlashdata('errors', 'Data gagal dihapus');
+                            return redirect()->back()->withInput();
+                        }
+                        
+                        
                     }
                 }
                 
