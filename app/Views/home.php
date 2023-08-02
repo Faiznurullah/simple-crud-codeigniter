@@ -18,7 +18,7 @@
 <a class="btn btn-info" href="/exportpdf">Export PDF</a> 
 <a class="btn btn-warning" href="/grafik">Grafik</a>
 <a class="btn btn-warning" href="/upload/transaksi">Upload Transaksi</a>
-<table id="myTable" class="table">
+<table id="myTable" class="display nowrap" width="100%">
 <thead>
 <tr>
 <th scope="col">No</th>
